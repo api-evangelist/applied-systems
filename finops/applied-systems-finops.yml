@@ -1,0 +1,91 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Applied Systems
+providerId: applied-systems
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Insurance
+- Applied Epic
+- FinOps
+- Cost Management
+- FOCUS
+- Partner Gated
+description: >-
+  FinOps view of Applied Systems developer-platform spend. There is no
+  standalone, usage-metered API invoice from Applied. API access is bundled into
+  the Applied Epic license and any certified-partner agreement, so the dominant
+  cost drivers are the Applied Epic subscription itself (custom, quote-based,
+  scaling with users, modules, and integration requirements), implementation and
+  data-migration services, and per-integration connector fees rather than
+  per-call API charges. The developer sandbox is free; production access is
+  approval-gated and tied to an active Applied Epic tenancy.
+notes: >-
+  Applied does not publish API meters or per-unit rates. Treat cost management
+  as license and contract management: track Applied Epic seats/modules,
+  connector fees, and partner-certification costs. Verify all figures directly
+  with Applied Systems during reconciliation.
+sources:
+- https://devcenter.myappliedproducts.com/docs/overview
+- https://www1.appliedsystems.com/en-us/about-us/partner-program/pre-built-integrations/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Applied Systems
+serviceCategory: Insurance Software and Agency Management
+billingModel:
+  pricingCategory: Subscription and Contract
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+  - Adjustment
+focusColumns:
+  ServiceName: Applied Epic Developer Platform
+  ServiceCategory: Insurance Software and Agency Management
+  ProviderName: Applied Systems
+  PublisherName: Applied Systems
+  InvoiceIssuerName: Applied Systems
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription and Contract
+meters:
+- name: epic_subscription
+  description: Applied Epic license cost, typically scaled by users and modules; API access is bundled here.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - module
+- name: connector_fees
+  description: Per-integration connector or marketplace fees for specific pre-built integrations.
+  unit: integrations
+  aggregation: sum
+  dimensions:
+  - account
+  - integration
+- name: partner_certification
+  description: Certified integration partner program costs for vendors building on Applied Epic.
+  unit: agreements
+  aggregation: sum
+  dimensions:
+  - partner
+principles:
+- name: Visibility
+  description: Track Applied Epic seats, modules, and each connector/integration fee; there is no per-call API meter to monitor.
+- name: Allocation
+  description: Map Applied Epic modules and integrations to the teams and workflows that consume them.
+- name: Optimization
+  description: Right-size Epic seats/modules, consolidate integrations, and request least-privilege OAuth scopes to limit exposure and avoid over-purchasing.
+- name: Accountability
+  description: Assign an owner for the Applied contract and review license, connector, and partner-certification spend on the annual renewal cycle.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

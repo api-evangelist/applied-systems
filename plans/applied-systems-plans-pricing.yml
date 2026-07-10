@@ -1,0 +1,109 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Applied Systems
+providerId: applied-systems
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Insurance
+- InsurTech
+- Applied Epic
+- Partner Gated
+- Plans
+description: >-
+  Applied Systems does not publish self-serve, usage-metered API pricing. The
+  Applied Epic developer platform is available to Applied customers and
+  certified integration partners: developers register at the Applied Dev Center,
+  build and test against a sandbox for free, then submit a production request
+  that Applied must approve before production credentials are issued. Commercial
+  terms are bundled into the underlying Applied Epic license and any partner /
+  certification agreement rather than sold as a standalone API subscription.
+  Applied Epic itself is enterprise-licensed with custom, quote-based pricing
+  that scales with users, modules, and integration requirements; published
+  third-party estimates put it on the order of roughly 1,500 USD per month for
+  ten users, scaling well into five figures per month for large agencies, plus
+  implementation and per-integration connector fees. None of these figures are
+  officially published, so all plans below are marked unreconciled.
+notes: >-
+  No official API price list exists. Verify current developer-program terms,
+  partner-certification fees, and Applied Epic licensing directly with Applied
+  Systems (INTEGRATIONSERVICES@appliedsystems.com) during reconciliation. Dollar
+  ranges cited here come from third-party pricing aggregators, not Applied.
+sources:
+- https://devcenter.myappliedproducts.com/docs/overview
+- https://devcenter.myappliedproducts.com/home
+- https://www1.appliedsystems.com/en-us/about-us/partner-program/pre-built-integrations/
+plans:
+- id: applied-sandbox
+  name: Developer Sandbox
+  type: free
+  description: >-
+    Free sandbox access via the Applied Dev Center for registered developers to
+    create an application, obtain an API key and OAuth credentials, subscribe to
+    API products, and test against simulated data before requesting production.
+  entries:
+  - label: Sandbox Access
+    name: sandbox_access
+    type: flat
+    metric: application
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free (registration required)
+    userMultiplied: false
+  elements:
+  - name: Application Registration
+  - name: API Key and OAuth Credentials
+  - name: Sandbox Test Data
+  - name: API Product Subscriptions
+- id: applied-production
+  name: Production Access (Approval Required)
+  type: enterprise
+  description: >-
+    Production API access granted after Applied reviews and approves a
+    production request (name, email, organization, enterprise ID, Epic database
+    name). Tied to an active Applied Epic tenancy; no standalone published
+    price.
+  entries:
+  - label: Production Application
+    name: production_application
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: bundled with Applied Epic license (contact Applied)
+    userMultiplied: false
+  elements:
+  - name: Production Credentials
+  - name: Live Applied Epic Data Access
+  - name: Approval and Review
+- id: applied-partner
+  name: Certified Integration Partner
+  type: enterprise
+  description: >-
+    Applied's certified integration partner program for third-party vendors
+    building and distributing integrations against Applied Epic. Includes
+    certification, testing, and marketplace listing; terms are negotiated.
+  entries:
+  - label: Partner Agreement
+    name: partner_agreement
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: negotiated (contact Applied partner team)
+    userMultiplied: false
+  elements:
+  - name: Integration Certification
+  - name: Marketplace Listing
+  - name: Partner Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

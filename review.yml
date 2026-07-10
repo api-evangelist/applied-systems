@@ -1,0 +1,88 @@
+aid: applied-systems
+name: Applied Systems
+review:
+  question: Does Applied Systems expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-10'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Applied Systems' developer platform for
+    Applied Epic (api.myappliedproducts.com, documented at the Applied Dev
+    Center) is request/response REST over HTTPS secured with OAuth 2.0. No
+    server-push transport (WebSocket or SSE) is documented on Applied's own API,
+    so there is no event-driven surface to model. Any near-real-time behavior in
+    the Applied ecosystem is achieved through polling these REST resources or
+    through partner integrations, not a documented Applied WebSocket endpoint.
+findings:
+  summary: |
+    Applied Systems does not publish a documented public WebSocket API. Applied
+    is a cloud insurance-software vendor whose flagship product is the Applied
+    Epic agency management system. It exposes a RESTful developer platform for
+    Applied Epic through the Applied Dev Center (devcenter.myappliedproducts.com),
+    which supersedes the older Applied Epic SDK. The platform base URL is
+    https://api.myappliedproducts.com and it is pure request/response REST over
+    HTTPS, authenticated with OAuth 2.0 (client ID / client secret exchanged for
+    a Bearer access token, scopes such as epic/clients:read and
+    epic/clients:all). No realtime, bidirectional, or streaming WebSocket
+    (ws:// or wss://) endpoint is documented anywhere on Applied's own API.
+  accessModel: |
+    Access is gated, not open self-serve. Developers register at the Applied Dev
+    Center, create an application, obtain an API key plus OAuth client
+    credentials, subscribe to API products, and build/test against a sandbox
+    with simulated data. To go live they submit a production request that
+    requires name, email, organization name, enterprise ID, and Epic database
+    name; Applied reviews and approves the request and then emails production
+    credentials. In practice this ties API access to being (or partnering with)
+    an Applied Epic customer, and Applied runs a certified integration partner
+    program alongside the developer program.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.myappliedproducts.com
+      documented: true
+      note: Applied Epic developer platform. OAuth 2.0 Bearer auth. Confirmed product paths include /crm/v1 and /policy/v1.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in the Applied Dev Center or the legacy Applied Epic SDK as of the review date.
+  endpointsConfirmedRest:
+    - GET https://api.myappliedproducts.com/crm/v1/clients
+    - GET https://api.myappliedproducts.com/policy/v1/clients/{clientId}/policies
+  endpointsModeled:
+    - Applied Epic Contacts API - contacts for clients, prospects, carriers, and vendors (named by Applied; REST paths gated).
+    - Applied Epic Attachments API - retrieve and upload account/activity/claim attachments (named by Applied; REST paths gated).
+    - Applied Epic Activities API - account activities and follow-up tasks (legacy SDK had activity insert; modern REST paths gated).
+  note: |
+    Confirmed endpoints are drawn from Applied's own developer materials and
+    third-party integration guides. Products named by Applied but without
+    publicly documented REST paths (Contacts, Attachments, Activities) are
+    recorded as modeled and were deliberately NOT fabricated into specific
+    endpoint paths.
+sources:
+  - url: https://devcenter.myappliedproducts.com/docs/overview
+    type: Documentation
+    note: Applied Dev Center overview. RESTful APIs, sandbox-then-production approval flow, supersedes the Applied Epic SDK.
+  - url: https://devcenter.myappliedproducts.com/home
+    type: DeveloperPortal
+    note: Getting started - create an app, obtain an API key, subscribe to APIs.
+  - url: https://www1.appliedsystems.com/en-us/blog/posts/applied-epic-api-insurance-software-integration/
+    type: BlogPost
+    note: Applied's own blog naming the Clients, Contacts, and Attachments APIs and describing OAuth-based access.
+  - url: https://endgrate.com/blog/using-the-applied-epic-api-to-get-clients-in-javascript
+    type: IntegrationGuide
+    note: Confirms GET /crm/v1/clients, OAuth Bearer auth, scopes epic/clients:read and epic/clients:all.
+  - url: https://endgrate.com/blog/how-to-get-policies-with-the-applied-epic-api-in-javascript
+    type: IntegrationGuide
+    note: Confirms GET /policy/v1/clients/{clientId}/policies with OAuth 2.0 Bearer auth.
+  - url: https://help.appliedsystems.com/Help/EpicSDK/2021.2/html/7f8e3dc0-3f5a-44f2-a37a-5170285782c0.htm
+    type: Documentation
+    note: Legacy Applied Epic SDK REST API areas (Persons, Policies, Quotes, Change Tracking, Leads Inbox, Logins, Lookups, Sticky Notes, Common Notes).
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on Applied's own API, and the Applied
+    Epic developer platform is request/response REST secured with OAuth 2.0. No
+    AsyncAPI document was created because there is no documented server-push
+    transport to model.

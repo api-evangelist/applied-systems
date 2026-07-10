@@ -1,0 +1,59 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Applied Systems
+providerId: applied-systems
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Insurance
+- Applied Epic
+- Rate Limiting
+- Quotas
+- Partner Gated
+description: >-
+  Applied Systems does not publish fixed numeric rate limits for the Applied
+  Epic developer platform in its public materials. Applied's own guidance
+  advises developers to implement rate-limit handling and error handling, which
+  implies per-application throttling is enforced, but the specific request-rate
+  ceilings and quotas are disclosed inside the gated Applied Dev Center and the
+  developer agreement rather than in public documentation. Access is further
+  bounded by the approval-based production onboarding and by the scope of the
+  OAuth grants (for example epic/clients:read vs epic/clients:all).
+notes: >-
+  Numeric per-application or per-endpoint limits are not publicly documented as
+  of the review date. Confirm concrete limits and the throttling response code
+  inside the Applied Dev Center and the developer agreement during
+  reconciliation.
+sources:
+- https://devcenter.myappliedproducts.com/docs/overview
+- https://www1.appliedsystems.com/en-us/blog/posts/applied-epic-api-insurance-software-integration/
+responseCodes:
+  throttled: 429
+limits:
+- name: Application Request Rate
+  scope: application
+  metric: requests
+  limit: not published
+  notes: Applied advises implementing rate-limit handling; specific ceilings are disclosed in the gated Dev Center.
+- name: OAuth Scope Boundaries
+  scope: application
+  metric: scopes
+  limit: per grant
+  notes: Access is constrained by granted scopes such as epic/clients:read and epic/clients:all.
+- name: Production Onboarding
+  scope: account
+  metric: approval
+  limit: approval-required
+  notes: Production credentials are issued only after Applied reviews and approves a production request.
+policies:
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+- name: Secure Credential Storage
+  description: Applied guidance directs storing API keys and OAuth secrets in a secure vault.
+- name: Least-Privilege Scopes
+  description: Request the narrowest OAuth scopes an application needs rather than blanket all-access grants.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

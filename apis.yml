@@ -1,0 +1,148 @@
+aid: applied-systems
+url: https://raw.githubusercontent.com/api-evangelist/applied-systems/refs/heads/main/apis.yml
+name: Applied Systems
+kind: company
+description: >-
+  Applied Systems is a leading global provider of cloud-based software for the
+  business of insurance, best known for the Applied Epic agency management
+  system (plus TAM, Applied CSR24, and related products). Applied exposes a
+  RESTful developer platform for Applied Epic through the Applied Dev Center at
+  devcenter.myappliedproducts.com, superseding the older Applied Epic SDK. The
+  APIs let certified partners and agencies read and write core Epic data -
+  clients/accounts, policies, contacts, attachments, and activities - over
+  OAuth 2.0. Access is gated: developers register, build and test an app against
+  a sandbox, then submit a production request (name, email, organization,
+  enterprise ID, and Epic database name) that Applied must approve before
+  production credentials are issued. Base URL for the platform is
+  https://api.myappliedproducts.com.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Insurance
+- InsurTech
+- Agency Management
+- Applied Epic
+- CRM
+- Policy Management
+- Partner Gated
+created: '2026-07-10'
+modified: '2026-07-10'
+specificationVersion: '0.19'
+apis:
+- aid: applied-systems:applied-systems-clients-api
+  name: Applied Epic Clients (CRM) API
+  tags:
+  - Clients
+  - Accounts
+  - CRM
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://devcenter.myappliedproducts.com/docs/overview
+  baseURL: https://api.myappliedproducts.com/crm/v1
+  endpointsModeled: false
+  properties:
+  - url: https://devcenter.myappliedproducts.com/docs/overview
+    type: Documentation
+  - url: https://www1.appliedsystems.com/en-us/blog/posts/applied-epic-api-insurance-software-integration/
+    type: BlogPost
+  description: >-
+    Read Applied Epic client (account) records - client lookup, benefits data
+    such as employee counts and HIPAA compliance, and identifiers used for VoIP
+    caller identification. Confirmed endpoint GET /crm/v1/clients is documented
+    in third-party integration guides. OAuth scopes include epic/clients:read
+    and epic/clients:all.
+- aid: applied-systems:applied-systems-policies-api
+  name: Applied Epic Policies API
+  tags:
+  - Policies
+  - Coverage
+  - Insurance
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://devcenter.myappliedproducts.com/docs/overview
+  baseURL: https://api.myappliedproducts.com/policy/v1
+  endpointsModeled: false
+  properties:
+  - url: https://devcenter.myappliedproducts.com/docs/overview
+    type: Documentation
+  - url: https://endgrate.com/blog/how-to-get-policies-with-the-applied-epic-api-in-javascript
+    type: IntegrationGuide
+  description: >-
+    Retrieve the policies attached to an Epic client. Confirmed endpoint
+    GET /policy/v1/clients/{clientId}/policies is documented in third-party
+    integration guides, returning coverage records for a given client over
+    OAuth 2.0 Bearer authentication.
+- aid: applied-systems:applied-systems-contacts-api
+  name: Applied Epic Contacts API
+  tags:
+  - Contacts
+  - CRM
+  - Directory
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://devcenter.myappliedproducts.com/docs/overview
+  baseURL: https://api.myappliedproducts.com
+  endpointsModeled: true
+  properties:
+  - url: https://devcenter.myappliedproducts.com/docs/overview
+    type: Documentation
+  - url: https://www1.appliedsystems.com/en-us/blog/posts/applied-epic-api-insurance-software-integration/
+    type: BlogPost
+  description: >-
+    Centralize contact data for clients, prospects, carriers, and vendors, with
+    filtering by classification, email, or account for sales and service teams.
+    Named in Applied's own API blog; specific REST paths are behind the gated
+    Dev Center, so endpoints here are modeled, not fabricated.
+- aid: applied-systems:applied-systems-attachments-api
+  name: Applied Epic Attachments API
+  tags:
+  - Attachments
+  - Documents
+  - Files
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://devcenter.myappliedproducts.com/docs/overview
+  baseURL: https://api.myappliedproducts.com
+  endpointsModeled: true
+  properties:
+  - url: https://devcenter.myappliedproducts.com/docs/overview
+    type: Documentation
+  - url: https://www1.appliedsystems.com/en-us/blog/posts/applied-epic-api-insurance-software-integration/
+    type: BlogPost
+  description: >-
+    Manage documents across Epic workflows - retrieve active attachments on a
+    client account, upload call recordings and transcripts to accounts or
+    activities, access proof-of-insurance attachments, and attach photos of
+    damaged vehicles to claims. Named in Applied's own API blog; specific REST
+    paths are behind the gated Dev Center, so endpoints here are modeled.
+- aid: applied-systems:applied-systems-activities-api
+  name: Applied Epic Activities API
+  tags:
+  - Activities
+  - Tasks
+  - Workflow
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://devcenter.myappliedproducts.com/docs/overview
+  baseURL: https://api.myappliedproducts.com
+  endpointsModeled: true
+  properties:
+  - url: https://devcenter.myappliedproducts.com/docs/overview
+    type: Documentation
+  description: >-
+    Work with Epic activities - the actions and follow-up reminders tracked
+    against each account. The legacy Applied Epic SDK exposed activity insert
+    operations; the modern REST surface is behind the gated Dev Center, so
+    endpoints here are modeled rather than fabricated.
+common:
+- type: Website
+  url: https://www.appliedsystems.com
+- type: LinkedIn
+  url: https://www.linkedin.com/company/applied-systems
+- type: Documentation
+  url: https://devcenter.myappliedproducts.com/docs/overview
+- type: DeveloperPortal
+  url: https://devcenter.myappliedproducts.com/home
+- type: Plans
+  url: plans/applied-systems-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/applied-systems-rate-limits.yml
+- type: FinOps
+  url: finops/applied-systems-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

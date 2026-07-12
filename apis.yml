@@ -129,6 +129,8 @@ apis:
     operations; the modern REST surface is behind the gated Dev Center, so
     endpoints here are modeled rather than fabricated.
 common:
+- type: DomainSecurity
+  url: security/applied-systems-domain-security.yml
 - type: Website
   url: https://www.appliedsystems.com
 - type: LinkedIn

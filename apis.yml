@@ -38,7 +38,7 @@ tags:
 - Partner Gated
 created: '2026-07-10'
 modified: '2026-07-10'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: applied-systems:applied-systems-clients-api
   name: Applied Epic Clients (CRM) API

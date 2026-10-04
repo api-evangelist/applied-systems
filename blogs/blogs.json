@@ -6,9 +6,10 @@
       "feed_url": "https://www1.appliedsystems.com/en-us/blog/posts/applied-epic-api-insurance-software-integration/",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "none",
+      "error": "parse_failed"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-09-19T20:17:39Z"
+  "fetched": "2026-10-03T12:15:37Z"
 }

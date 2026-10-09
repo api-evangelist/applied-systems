@@ -32,6 +32,9 @@ accessModel:
   trial: false
   try_now: false
   public: false
+  gated: partner
+  gated_source:
+  - tag:Partner Gated
   label: Freemium
   confidence: medium
   source:
@@ -46,7 +49,6 @@ tags:
 - Applied Epic
 - CRM
 - Policy Management
-- Partner Gated
 tags_raw:
 - Insurance
 - InsurTech
@@ -54,7 +56,6 @@ tags_raw:
 - Applied Epic
 - CRM
 - Policy Management
-- Partner Gated
 created: '2026-07-10'
 modified: '2026-07-10'
 specificationVersion: '0.23'
@@ -191,3 +192,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-tags-removed:
+- Partner Gated

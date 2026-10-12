@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/applied-systems/integrations
 - https://n8n.io/integrations/applied-systems/
@@ -9,8 +9,18 @@ checked:
 - https://composio.dev/toolkits/applied-systems
 - https://monid.ai/tools/applied-systems
 - https://n8n.io/integrations/applied-systems/
+- https://www.appliedsystems.com/en-us/partners/
 - https://zapier.com/apps/applied-systems/integrations
 summary: null
-marketplace_apps: []
+marketplace_apps:
+- marketplace: own
+  channel: partner-built
+  app: applied-systems
+  url: https://www.appliedsystems.com/en-us/partners/
+  app_count: null
+  adapter: sweep-insurance.py:unreadable
+  listed: 0
+  status: 'not-machine-readable (HTTP 404; no public marketplace or partner directory: /partners and /marketplace
+    404, marketplace.appliedsystems.com does not resolve)'
 edges: []
 templates: []

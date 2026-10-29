@@ -1,4 +1,4 @@
-# Applied Systems (applied-systems)
+# Applied Systems
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,89 +64,106 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Applied Systems is a leading global provider of cloud-based software for the business of insurance, best known for the **Applied Epic** agency management system (alongside TAM, Applied CSR24, and related products). Applied exposes a RESTful developer platform for Applied Epic through the **Applied Dev Center** ([devcenter.myappliedproducts.com](https://devcenter.myappliedproducts.com/docs/overview)), which supersedes the older Applied Epic SDK.
+Applied Systems is a leading global provider of cloud-based software for the business of insurance, best known for the Applied Epic agency management system (plus TAM, Applied CSR24, and related products). Applied exposes a RESTful developer platform for Applied Epic through the Applied Dev Center at devcenter.myappliedproducts.com, superseding the older Applied Epic SDK. The APIs let certified partners and agencies read and write core Epic data - clients/accounts, policies, contacts, attachments, and activities - over OAuth 2.0. Access is gated: developers register, build and test an app against a sandbox, then submit a production request (name, email, organization, enterprise ID, and Epic database name) that Applied must approve before production credentials are issued. Base URL for the platform is https://api.myappliedproducts.com.
 
-The platform lets certified partners and agencies read and write core Epic data - clients/accounts, policies, contacts, attachments, and activities - over OAuth 2.0, with a base URL of `https://api.myappliedproducts.com`.
+**Areas:** Insurance · Insurtech · Agency Management · Applied Epic · CRM · Policy Management
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/applied-systems/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/applied-systems/refs/heads/main/apis.yml)
+## Applied Systems on APIs.io
 
-## Access Model (Gated)
+Everything profiled for Applied Systems is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/applied-systems/](https://apis.io/providers/applied-systems/)** — or go straight to one of the APIs or properties below.
 
-Applied's developer platform is **not open self-serve**. Access is tied to being (or partnering with) an Applied Epic customer:
+### APIs (5)
 
-1. **Register** at the Applied Dev Center and create an application.
-2. **Obtain credentials** - an API key plus OAuth client ID / client secret - and subscribe to API products.
-3. **Build and test in a sandbox** against simulated data.
-4. **Submit a production request** with your name, email, organization name, enterprise ID, and Epic database name.
-5. **Await approval** - Applied reviews the request and, once approved, emails production credentials.
+- [Applied Epic Clients (CRM) API](https://apis.io/apis/applied-systems/applied-systems-clients-api/) — Read Applied Epic client (account) records - client lookup, benefits data such as employee counts and HIPAA compliance, and identifiers used for VoIP caller…
+- [Applied Epic Policies API](https://apis.io/apis/applied-systems/applied-systems-policies-api/) — Retrieve the policies attached to an Epic client. Confirmed endpoint GET /policy/v1/clients/{clientId}/policies is documented in third-party integration…
+- [Applied Epic Contacts API](https://apis.io/apis/applied-systems/applied-systems-contacts-api/) — Centralize contact data for clients, prospects, carriers, and vendors, with filtering by classification, email, or account for sales and service teams.…
+- [Applied Epic Attachments API](https://apis.io/apis/applied-systems/applied-systems-attachments-api/) — Manage documents across Epic workflows - retrieve active attachments on a client account, upload call recordings and transcripts to accounts or activities,…
+- [Applied Epic Activities API](https://apis.io/apis/applied-systems/applied-systems-activities-api/) — Work with Epic activities - the actions and follow-up reminders tracked against each account. The legacy Applied Epic SDK exposed activity insert…
 
-Applied also runs a **certified integration partner** program for third-party vendors distributing integrations against Applied Epic.
+### Published properties
 
-**Authentication:** OAuth 2.0 - exchange client ID / client secret for a Bearer access token; scopes such as `epic/clients:read` and `epic/clients:all` gate resource access.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Tags
+#### Security (1)
 
-- Insurance
-- InsurTech
-- Agency Management
-- Applied Epic
-- CRM
-- Policy Management
-- Partner Gated
+Authentication, trust centre, and vulnerability disclosure.
 
-## Timestamps
+- [Applied Systems Domain Security](https://apis.io/security/applied-systems/applied-systems-domain-security/)
 
-- **Created:** 2026-07-10
-- **Modified:** 2026-07-10
+#### Plans and pricing (1)
 
-## APIs
+Published plans, tiers and prices.
 
-### Applied Epic Clients (CRM) API
+- [Applied Systems Plans Pricing](https://apis.io/plans/applied-systems/applied-systems-plans-pricing/)
 
-Read Applied Epic client (account) records - client lookup, benefits data (employee counts, HIPAA compliance), and identifiers used for VoIP caller identification.
+#### Rate limits (1)
 
-- **Base URL:** `https://api.myappliedproducts.com/crm/v1`
-- **Confirmed endpoint:** `GET /crm/v1/clients`
-- **Scopes:** `epic/clients:read`, `epic/clients:all`
+Published request limits.
 
-### Applied Epic Policies API
+- [Applied Systems Rate Limits](https://apis.io/rate-limits/applied-systems/applied-systems-rate-limits/)
 
-Retrieve the policies attached to an Epic client.
+#### FinOps (1)
 
-- **Base URL:** `https://api.myappliedproducts.com/policy/v1`
-- **Confirmed endpoint:** `GET /policy/v1/clients/{clientId}/policies`
+What the API costs to run, by operation.
 
-### Applied Epic Contacts API *(endpoints modeled)*
+- [Applied Systems Finops](https://apis.io/finops/applied-systems/applied-systems-finops/)
 
-Centralize contact data for clients, prospects, carriers, and vendors, filtered by classification, email, or account. Named in Applied's own API blog; specific REST paths are behind the gated Dev Center and are not fabricated here.
+## Where to find this API
 
-### Applied Epic Attachments API *(endpoints modeled)*
-
-Manage documents across Epic workflows - retrieve active attachments on a client account, upload call recordings and transcripts to accounts or activities, access proof-of-insurance attachments, and attach damage photos to claims. Named in Applied's own API blog; REST paths behind the gated Dev Center.
-
-### Applied Epic Activities API *(endpoints modeled)*
-
-Work with Epic activities - the actions and follow-up reminders tracked against each account. The legacy Applied Epic SDK exposed activity insert operations; the modern REST surface is behind the gated Dev Center.
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.appliedsystems.com)
-- [LinkedIn](https://www.linkedin.com/company/applied-systems)
 - [Documentation](https://devcenter.myappliedproducts.com/docs/overview)
-- [Developer Portal](https://devcenter.myappliedproducts.com/home)
-- [Plans](plans/applied-systems-plans-pricing.yml)
-- [Rate Limits](rate-limits/applied-systems-rate-limits.yml)
-- [Fin Ops](finops/applied-systems-finops.yml)
 
-## WebSocket Review
+## API Evangelist rating
 
-Applied Systems does **not** publish a documented public WebSocket API. The Applied Epic developer platform is request/response REST over HTTPS secured with OAuth 2.0; no `ws://` or `wss://` endpoint is documented on Applied's own API. See [review.yml](review.yml).
+**Kin Score 11.9** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Pricing Note
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 7.9 |
 
-There is no standalone, published, usage-metered API price. The developer sandbox is free; production access is approval-gated and bundled with the Applied Epic license (enterprise, quote-based) and any certified-partner agreement. Public dollar figures cited in the plans/FinOps files come from third-party aggregators, not Applied.
+**Agent readiness 0.6** — human-only
 
-## Maintainers
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Regulatory alignment 5.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/applied-systems/](https://apis.io/providers/applied-systems/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Applied Systems: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/applied-systems/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
